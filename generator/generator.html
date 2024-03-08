@@ -1,0 +1,29 @@
+<html>
+  <script>
+    function* gen()
+    {
+      console.log('One');
+      yield 1;
+      console.log('two');
+      yield 2;
+      console.log('three');
+      yield 3;
+    }
+
+    let g = gen();
+    // console.log('G.next ', g.next());
+    // console.log('G.next ', g.next());
+    // console.log('G.next ', g.next());
+
+    for(const item of g)
+    {
+      console.log('Iterator ', item);
+    }
+
+    for(const item of gen())
+    {
+      console.log('Iterator 2', item);
+    }
+
+  </script>
+</html>

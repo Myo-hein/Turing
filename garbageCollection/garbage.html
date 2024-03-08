@@ -1,0 +1,31 @@
+<html>
+  <body>
+    
+    <button type="button" id="btnAllocate">Allocate</button>
+    <button type="button" id="btnDeallocate">Deallocate</button>
+    
+  </body>
+  <script>
+    let another;
+    function hello()
+    {
+      console.log('Allocate');
+      let arr = [];
+      for(let i = 0; i < 50; i++)
+      {
+        arr.push(new Array(10000));
+      }
+      another = arr;  
+      // another is global scope if local mermory heap wont be change 
+      // global var another point to arr refrence
+    }
+
+    document.getElementById('btnAllocate').addEventListener('click', () => {
+      hello();
+    });
+
+    document.getElementById('btnDeallocate').addEventListener('click', () => {
+      another = null;
+    })
+  </script>
+</html>

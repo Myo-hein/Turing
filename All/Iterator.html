@@ -1,0 +1,39 @@
+<html>
+  <script>
+    // let iterable = [99, 10];
+    // let iterator = iterable[Symbol.iterator]();
+    // for(
+    //   let result = iterator.next(); 
+    //   !result.done;
+    //   result = iterator.next()
+    // ) {
+    //   console.log("Result ", result);
+    //   console.log("Result.Value ", result.value);
+    // }
+
+    function range(n) 
+    {
+      let counter = 0;
+      return {
+        [Symbol.iterator](){
+          return {
+            next() 
+            {
+              return {
+                value : counter,
+                done : !(counter++ < n), 
+              }
+            }
+          }
+        }
+      }
+    }
+
+    let rag = range(5); 
+    for(const item of rag)
+    {
+      console.log('Item value ', item);
+    }
+
+  </script>
+</html>

@@ -1,0 +1,47 @@
+<html>
+  <script>
+    const toUpper = (str) => str.toUpperCase();
+    const appendHi = (str) => str + 'hi';
+
+    /* Imprerative Way */
+    // Cost static function call 
+    function appendHiAndToUpper(str)
+    {
+      return toUpper(appendHi(str));
+    }
+    console.log('appendHiAndToUpper ', appendHiAndToUpper('Hello'));
+
+
+    // Declarative Way
+    // Advs dynimic func call
+    function compose(f, g)
+    {
+      return function(x)
+      {
+        return f(g(x));
+      }
+    }
+
+    // Compose Many
+    function composeMany(...fns)
+    {
+      return function(x)
+      {
+        return fns.reduce((input, fn) => fn(input), x);
+      }
+    }
+
+    let newFun = compose(toUpper, appendHi);
+    console.log('newFun ', newFun('Hello'));
+
+    let f = (x) => x + 10;
+    let g = (x) => x * 3;
+    let newFun2 = compose(f, g);
+    console.log('newFun2 ', newFun2(3));
+
+    let inc = (x) => x + 1;
+    let composeManyTest = composeMany(f,g,inc);
+    console.log('composeMany test ', composeManyTest(3));
+
+  </script>
+</html>

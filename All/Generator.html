@@ -1,0 +1,32 @@
+<html>
+  <script>
+    function* toInfinity(from)
+    {
+      let counter = from;
+      while(true)
+      {
+        yield counter++;
+      }
+    }
+    function* take(n, iterable)
+    {
+      let it = iterable[Symbol.iterator]();
+      while(n-- > 0) {
+        let next = it.next();
+        if(next.done)
+        {
+          return;
+        }
+        else
+        {
+          yield next.value;
+        }
+      }
+    }
+
+    for(const item of take(5, toInfinity(10)))
+    {
+      console.log('Itme => ', item);
+    }
+  </script>
+</html>

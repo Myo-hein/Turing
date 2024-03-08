@@ -1,0 +1,20 @@
+<html>
+  <script>
+    class Counter {
+      // Static Property
+      static globalID = 0;
+      
+      constructor() 
+      {
+        this.id = Counter.globalID++;  
+      }
+    }
+
+    let c = new Counter();
+    let c2 = new Counter();
+
+    console.log('c ', c.id);
+    console.log('c2 ', c2.id);
+    console.log('Global ID ', Counter.globalID);
+  </script>
+</html>

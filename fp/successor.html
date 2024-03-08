@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let ONE = f => x => f(x);
+    let TWO = f => x => f(f(x));
+
+    let SUCCESSOR = n => f => x => f(n(f)(x));
+    let SUM = m => n => n(SUCCESSOR)(m);
+
+    let hi = (x) => {
+      console.log(x);
+      return x;
+    }
+    
+    let FOUR = SUM(TWO)(TWO);
+    let FIVE = SUCCESSOR(FOUR);
+
+    FIVE(hi)('hello');
+
+    let TEN = SUM(FIVE)(FIVE);
+    TEN(hi)('test ten');
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+  <body>
+    <h1>Update Block Scope Variable</h1>
+  </body>
+  <script>
+    let user_id;
+
+    function checkVar() {
+      user_id = 1;
+      console.log('checkOne ', user_id );
+    };
+    
+    function checkVarTwo() {
+      user_id = 2;
+      console.log('checkTwo ', user_id );
+    };
+
+    checkVarTwo();
+
+    checkVar();
+    
+    console.log('Golbal Scope Value', user_id );
+
+  </script>
+</html>

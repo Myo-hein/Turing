@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let arr = [
+      {
+        name : 'Aung',
+        gender : 'male',
+        age : 12,
+        city : 'Ygn'
+      },
+      {
+        name : 'Maung',
+        gender : 'male',
+        age : 15,
+        city : 'Ygn'
+      },
+      {
+        name : 'Bung',
+        gender : 'female',
+        age : 5,
+        city : 'Mdy'
+      },
+      {
+        name : 'Chang',
+        gender : 'male',
+        age : 14,
+        city : 'Kalaw'
+      },
+      {
+        name : 'Eaung',
+        gender : 'female',
+        age : 3,
+        city : 'Mdy'
+      }
+    ]
+      
+    // const group = arr.reduce((group, obj) => {
+    //   if(!group[obj.gender])
+    //   {
+    //     return {
+    //       ...group,
+    //       [obj.gender] : [obj]
+    //     };
+    //   }
+    //   else
+    //   {
+    //     return {
+    //       ...group,
+    //       [obj.gender] : [...group[obj.gender] , obj]
+    //     }
+    //   }
+    // }, {});
+
+    // console.log(group);
+
+    // function groupBy(prop)
+    // {
+    //   return arr.reduce((group, obj) => {
+    //     if(!group[obj[prop]])
+    //     {
+    //       return {
+    //         ...group,
+    //         [obj[prop]] : [obj]
+    //       }
+    //     }
+    //     else
+    //     {
+    //       return { 
+    //         ...group,
+    //         [obj[prop]] : [...group[obj[prop]] , obj]
+    //       }
+    //     }
+    //   }, {});
+    // }
+
+    function groupBy(arr, prop)
+    {
+      let group = {};
+      for (let obj of arr) {
+        if (!group[obj[prop]]) {
+            group[obj[prop]] = [obj];
+        } else {
+            group[obj[prop]].push(obj);
+        }
+      }
+      return group;
+    }
+    
+
+    console.log(groupBy(arr, 'city'));
+  </script>
+</body>
+</html>

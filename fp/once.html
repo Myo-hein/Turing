@@ -1,0 +1,77 @@
+<html>
+  <script>
+    /* Impremative Way */
+    // duplicate 
+    /*
+    let done = false;
+    function payment()
+    {
+      if(!done)
+      {
+        console.log('Payment Api called'); // bussiness logic
+        done = true;
+      }
+    }
+
+    let done2 = false;
+    function putOrder()
+    {
+      if(!done2)
+      {
+        console.log('PutOrder api called'); // bussiness logic
+        done2 = true;
+      }
+    }
+
+    payment();
+    payment();
+
+    putOrder();
+    putOrder();
+    */
+
+    /* FP Way */
+    // solve duplicate and sperate concerns
+    function payment(card)
+    {
+      console.log('Payement api called', card);
+    }
+
+    function putOrder(count, card)
+    {
+      console.log('Put Order api called', count, card);
+    }
+
+    /*
+    // Normal fun
+    function once(fn)
+    {
+      let done = false;
+      return function(...data)
+      {
+        if(!done)
+        {
+          done = true;
+          fn(...data);
+        }   
+      }
+    }
+    */
+
+    // arrow fun
+    const once = fn => {
+      let done = false;
+      return (...rest) => ( 
+        !done ? (done = true, fn(...rest)): undefined
+      );
+    }
+
+    // overwrite payment fun directly to avoide miss use
+    // not to call payment() directly
+    payment = once(payment);
+    putOrder = once(putOrder);
+
+    putOrder(1, '11222');
+    payment('12222');
+  </script>
+</html>

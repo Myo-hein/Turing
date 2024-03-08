@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // range logic
+    const range = (start, stop) => new Array(stop - start)
+                                  .fill(0)
+                                  .map((v, i) => start + i); 
+    
+    console.log(range(1, 6));
+
+    // factorial 
+    const factorial = (n) => range(1, n+1)
+                            .reduce((a, b) => a*b );
+    
+    console.log('Factorial or 4 is', factorial(4));
+
+    
+  </script>
+</body>
+</html>

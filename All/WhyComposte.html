@@ -1,0 +1,27 @@
+<html>
+  <script>
+    const toUpper = (str) => str.toUpperCase();
+    const appendHi = str => str + ' FP';
+
+    function appendHiAndToUpper(str)
+    {
+      return toUpper(appendHi(str));
+    }
+    console.log('appendHiAndToUpper ', appendHiAndToUpper('hello'));
+    
+  // let f = (x) => x + 10;
+  // let g = (x) => x * 2;
+  // let inc = (x) => x + 1;
+  // console.log('f.g(3) ', f(g(3)));
+
+  function compose(f,g)
+  {
+    return function(x)
+    {
+      return f(g(x));
+    }
+  }
+  let newFun = compose(toUpper,appendHi);
+  console.log('NewFun ', newFun('hello'));
+  </script> 
+</html>

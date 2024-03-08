@@ -1,0 +1,59 @@
+<html>
+  <body>
+    <div id="time">
+      
+    </div> 
+    <button id="btnLoad">
+        load
+      </button> 
+  </body>
+  <script>
+    setInterval(()=>{
+      document.getElementById('time').innerHTML = new Date();
+    },1000);
+
+    // IN Callback
+    function loadScript(url, callback)
+    {
+      let dynamicScript = document.createElement('script');
+      dynamicScript.src = url;
+      dynamicScript.onload = callback;
+      document.body.appendChild(dynamicScript);
+    }
+
+    // In Promise
+    function loadScriptPromise(url)
+    {
+      return new Promise((resolve, reject) => {
+        let dynamicScript = document.createElement('script');
+        dynamicScript.src = url;
+        dynamicScript.onload = resolve;
+        document.body.appendChild(dynamicScript);
+      })
+     
+    }
+
+    // In Default
+    function loadScriptDefault(url)
+    {
+      let dynamicScript = document.createElement('script');
+      dynamicScript.src = url;
+      document.body.appendChild(dynamicScript);
+      dynamicScript.onload = console.log('Script have been loaded in Default');
+    }
+
+    document.getElementById('btnLoad').addEventListener('click', () => {
+        console.log('Btn Load Clicked');
+
+        loadScript('Dynamic.js',() => {
+          console.log('Script have been loaded in Callback');
+        });
+
+        loadScriptPromise('Dynamic.js').then( () => {
+          console.log('Script have been loaded in Promise');
+        });
+        
+        loadScriptDefault('Dynamic.js');
+      });
+  </script>
+</html>

@@ -1,0 +1,32 @@
+<html>
+  <script>
+    function factorial(n)
+    {
+      let result = 1;
+      for(let i = 1; i <= n; i++)
+      {
+        result *= i;
+      }
+      return result;
+    }
+
+    function delayFactorial(n, callBack)
+    {
+      console.log('Code Started');
+
+      setTimeout(() => {
+        let result = factorial(n);
+        console.log('Async code executed ', result);
+        callBack(result);
+      }, 2000);
+
+      console.log('Code end');
+    }
+
+    delayFactorial(5, (result) => {
+      console.log('Result from delayed factorial ', result);
+    });
+
+    console.log('End ');
+  </script>
+</html>

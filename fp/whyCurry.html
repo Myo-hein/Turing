@@ -1,0 +1,31 @@
+<html>
+  <script>
+    let f = (x) => x + 10;
+    let g = (x) => x * 2;
+    let inc = (x) => x + 1;
+
+    function add(x)
+    {
+      return function(y)
+      {
+        return x + y;
+      }
+    }
+
+    function pipe(...fns)
+      {
+        return function(x)
+        {
+            return fns.reduce((input,fn)=>fn(input) ,x);
+        }
+      }
+
+    console.log('Add (3)(4) ', add(3)(4));
+    let newFun = pipe(inc, add(3));
+    console.log('new Func ', newFun(3));
+
+    let func = (a, b, c) => {};
+
+    console.log(typeof(func));
+  </script>
+</html>

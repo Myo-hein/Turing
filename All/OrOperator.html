@@ -1,0 +1,101 @@
+<html>
+  <body>
+    <h1>
+      ( OR || ) Sematic 
+    </h1>
+    <h2>
+      truthy || falsy 
+    </h2>
+    <ul>
+      <li>If LHS is falsy -> return LHS</li>
+      <li>If RHS is truthy -> return RHS</li>
+      <li>React Use || Case
+        <ul>
+          <li>
+            sometingTrthy || return Somethnig
+          </li>
+          <li>
+            & and || not the same
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <pre>
+      // Short Circuit Opreator 
+      function getFalse() 
+    {
+      console.log('getFalse Invoked');
+      return false;
+    }
+    
+    function getTrue() 
+    {
+      console.log('getTrue Invoked');
+      return true;
+    }
+
+    //If LHS is falsy -> return LHS
+    console.log('// If LHS is falsy -> return LHS');
+    console.log('false || "something" ', false || "something");
+    console.log('fasle || true ', false || true);
+    console.log('0 || "something" ', 0 || "something");
+    console.log('"empty string" || "something" ', "" || "something");
+    console.log('getFalse() || getTrue() ', getFalse() || getTrue());
+
+    // //If RHS is truthy -> return RHS
+    console.log('// If RHS is truthy -> return RHS');
+    console.log('true || "something" ', true || "something");
+    console.log('1 || "something" ', 1 || "something");
+    console.log('"something" || "null" ', "something" || null);
+    console.log('"something" || "undefined" ', "something" || undefined);
+    console.log('"true" || "object" ', null || true);
+    console.log('getTrue() || getFalse() ', getTrue() || getFalse());
+
+    // Short Circuit Operator
+    console.log('// Short Circuit Operator');
+    console.log('getTrue() |  getFalse() ', getTrue() | getFalse());
+    console.log('getFalse() |  getFalse() ', getFalse() | getFalse());
+    console.log('getTrue() |  getTrue() ', getTrue() | getTrue());
+
+
+    </p>
+  </body>
+  <script>
+    // Short Circuit Opreator 
+    function getFalse() 
+    {
+      console.log('getFalse Invoked');
+      return false;
+    }
+    
+    function getTrue() 
+    {
+      console.log('getTrue Invoked');
+      return true;
+    }
+
+    //If LHS is falsy -> return LHS
+    console.log('// If LHS is falsy -> return LHS');
+    console.log('false || "something" ', false || "something");
+    console.log('fasle || true ', false || true);
+    console.log('0 || "something" ', 0 || "something");
+    console.log('"empty string" || "something" ', "" || "something");
+    console.log('getFalse() || getTrue() ', getFalse() || getTrue());
+
+    // //If RHS is truthy -> return RHS
+    console.log('// If RHS is truthy -> return RHS');
+    console.log('true || "something" ', true || "something");
+    console.log('1 || "something" ', 1 || "something");
+    console.log('"something" || "null" ', "something" || null);
+    console.log('"something" || "undefined" ', "something" || undefined);
+    console.log('"true" || "object" ', null || true);
+    console.log('getTrue() || getFalse() ', getTrue() || getFalse());
+
+    // Short Circuit Operator
+    console.log('// Short Circuit Operator');
+    console.log('getTrue() |  getFalse() ', getTrue() | getFalse());
+    console.log('getFalse() |  getFalse() ', getFalse() | getFalse());
+    console.log('getTrue() |  getTrue() ', getTrue() | getTrue());
+
+  </script>
+</html>

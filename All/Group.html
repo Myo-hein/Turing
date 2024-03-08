@@ -1,0 +1,70 @@
+<html>
+  <script>
+    let arr = [
+      {
+        name : 'Mg Mg',
+        age : 18, 
+        gender : 'Custom'
+      },
+      {
+        name : 'Hla Hla',
+        age : 18, 
+        gender : 'Female'
+      },
+      {
+        name : 'Ag Ag',
+        age : 18, 
+        gender : 'Male'
+      },
+      {
+        name : 'Mya Mya',
+        age : 18, 
+        gender : 'Female'
+      },
+      {
+        name : 'Tin Tin',
+        age : 18, 
+        gender : 'Female'
+      }
+    ];
+
+    let group = {};
+
+    // Impermative Way
+    for(let obj of arr)
+    {
+      if(!group[obj.gender])
+      {
+        group[obj.gender] = [obj];
+      }
+      else
+      {
+        group[obj.gender].push(obj);
+      }
+    }
+    console.log('Group By Gender Impremative ', group);
+
+    // Declartive Way 
+    function groupBy(arr, prop)  
+    {
+      return arr.reduce( (group,obj) => {
+        if(!group[obj[prop]])
+        {
+          return {
+            ...group, // clone group obj shallow copy
+            [obj[prop]] : [obj]
+          }
+        }
+        else
+        {
+          return {
+            ...group,
+            [obj[prop]] : [ ...group[obj[prop]], obj] // shallow copy latest group data and put current obj
+          }
+        }
+      }, {}); 
+    }
+    console.log('Group By Gender declarative ', groupBy(arr,'gender'));
+
+  </script>
+</html> 

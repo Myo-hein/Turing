@@ -1,0 +1,29 @@
+<html>
+  <script>
+    // Define Array
+    let arr = [ 1, 2, 3, 4, 5, 6 ];
+
+    // Predicate Function
+    const eqFive = x => x == 5; 
+
+    // Find Equal Value of Predicate
+    const find =  ( arr, predicate ) => 
+      arr.reduce(( a, b ) => {
+        let result = (a === undefined && predicate(b) ? b : a);
+        console.log(result);
+        return result;
+      }
+      , undefined);
+    console.log('Find eqFive is ', find(arr, eqFive));
+
+    // FindIndex of where pridcate value found
+    const findIndex = (arr, predicate) => 
+      arr.reduce((a, b, index) => {
+        let result = (a === -1 && predicate(b) ? index : a);
+        console.log(result);
+        return result;
+      }, -1);
+    console.log('FindIndex of eqFive Value ', findIndex(arr, eqFive));
+    
+  </script>
+</html>

@@ -1,0 +1,29 @@
+<html>
+  <script>
+    const range = (start, stop) => new Array(stop - start)
+                                    .fill(0)
+                                    .map((v, i) => start + i);
+    
+    // Reduce instead of Map
+    let oneTo4 = range(1,5);
+    let double = x => x*2;
+
+    let result = oneTo4.reduce((a, b) => {
+      return [
+        ...a, 
+        double(b)
+      ];
+    }, []);
+    console.log(result)
+
+    // Reduce instead of Filter
+    let oneToTen = range(1, 11);
+    const isEven = x => x % 2 == 0;
+
+    const filter = (arr, predicate) => arr.reduce((a, b) => {
+      return predicate(b) ? [...a, b] : a;
+    }, [])
+
+    console.log(filter(oneToTen, isEven));
+  </script>
+</html>

@@ -1,0 +1,28 @@
+<html>
+  <body>
+    <h1>Solution to await not concurrent</h1>
+    <script>
+      let url1 = 'https://jsonplaceholder.typicode.com/todos/1';
+      let url2 = 'https://jsonplaceholder.typicode.com/todos/2';
+      let url3 = 'https://jsonplaceholder.typicode.com/todos/3';
+
+      async function getConcurrentApi(){
+        let urls = [ url1, url2 ];
+
+        let promises = urls.map(url=>
+          fetch(url)
+          .then(res=>res.json())
+        );
+
+        // **** here is solution
+        let jsons = await Promise.all(promises);
+        // ****
+
+        console.log('JSONS ', jsons);
+      }
+
+      getConcurrentApi();
+      
+    </script>
+  </body>
+</html>

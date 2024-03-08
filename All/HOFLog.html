@@ -1,0 +1,24 @@
+<html>
+  <script>
+    function greet(message)
+    {
+      console.log('Greet ', message);
+    }
+
+    function display(message)
+    {
+      console.log('Display ', message);
+    }
+
+    function log(fn)
+    {
+      return function(...args)
+      {
+        console.log(new Date(), ' function ', fn.name, ' was called');
+        return fn(...args);
+      }
+    }
+    let greetLog = log(greet);
+    greetLog('Hello');
+  </script>
+</html>

@@ -1,0 +1,57 @@
+<html>
+  <script>
+    let nums = [ 1, 1, 1, 2, 3, 3 ], k = 3;
+
+    let frequency = {};
+
+    // for(let number of nums)
+    // {
+    //   if(!frequency[number])
+    //   {
+    //     frequency[number] = [number]; 
+    //   }
+    //   else
+    //   {
+    //     frequency[number].push(number);
+    //   }
+    // }
+    // console.log('Frequency ', frequency);
+
+    // let theMostNumber = Object.keys(frequency).reduce((a, b) => {
+    //   return frequency[a].length > frequency[b].length ? a : b;
+    // });
+
+    // console.log('The most count is ', theMostNumber);
+
+
+    for(let item of nums)
+    {
+      if(!frequency[item])
+      {
+        frequency[item] = 1; 
+      }
+      else
+      {
+        frequency[item] ++;
+      }
+    }
+    console.log('Frequency ', frequency);
+
+    // Obj to Array
+    let frequencyArr = Object.entries(frequency);
+
+    console.log('FrequencyArr ', frequencyArr);
+
+    frequencyArr.sort((a, b) =>  b[1] - a[1]);
+
+    console.log('FrequencyArr ', frequencyArr);
+
+    let result = [];
+    for(let i = 0; i < k; i++)
+    {
+      result.push(frequencyArr[i][0]);
+    }
+    console.log('Top K 2 ', result);
+
+  </script>
+</html>

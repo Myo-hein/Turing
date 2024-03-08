@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function payment(card)
+    {
+      console.log('Payement api called', card);
+    }
+
+    function putOrder(count, card)
+    {
+      console.log('Put Order api called', count, card);
+    }
+    
+    function onceAndAfter(f, g)
+    {
+      let done = false;
+      return function(...rest)
+      {
+        if(!done)
+        {
+          done = true;
+          f(...rest);
+        }   
+        else
+        {
+          return g(...rest);
+        }
+      }
+    }
+
+    // overwrite payment fun directly to avoide miss use
+    // not to call payment() directly
+    payment = onceAndAfter(
+      payment, 
+      () => console.log('PutOrder have been already called.')
+    );
+    // putOrder = once(putOrder);
+
+    putOrder(1, '11222');
+    payment('12222');
+    payment('2343');
+  </script>
+</body>
+</html>

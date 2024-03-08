@@ -1,0 +1,24 @@
+<html>
+  <script>
+    const obj = {
+      name : 'MH',
+      age : 24,
+      arr : [100, 200],
+      display()
+      {
+        console.log('Display');
+      }
+    }
+
+    const another = {
+      age : 100
+    }
+
+    console.log('Obj ', obj.age);
+
+    const getField = attr => obj => obj[attr];
+    const getAge = getField('age');
+    console.log('getAge ', getAge(obj));
+    console.log('getAge ', getAge(another));
+  </script>
+</html>

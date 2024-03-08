@@ -1,0 +1,31 @@
+<html>
+  <script>
+    let arr = [1, 2, 3, 4, 5, 6, 7];
+    const gtFive = x => x < 5;
+
+    const findOne = (arr, predicate) => 
+      arr.reduce((a, b) => 
+        a === undefined && predicate(b) ? b : a
+      , undefined);
+
+    const findAll = (arr, predicate) => 
+      arr.reduce((a, b) => 
+        predicate(b) ? [...a, b] : a
+      , []); 
+
+    const findIndex = (arr, predicate) => 
+      arr.reduce((a, b, index) => 
+        a === -1 && predicate(b) ? index : a
+      , -1);
+
+    const findAllIndex = (arr, predicate) => 
+      arr.reduce((a, b, index) => 
+        predicate(b) ? [...a, index] : a
+      , []);
+
+    console.log('FindOne ', findOne(arr, gtFive));
+    console.log('FindAll ', findAll(arr, gtFive));
+    console.log('Find Index ', findIndex(arr, gtFive));
+    console.log('Find All Index ', findAllIndex(arr, gtFive));
+  </script>
+</html>

@@ -1,0 +1,32 @@
+<html>
+  <script>
+    let f = x => x + 10;
+    let g = x => x * 2;
+    let i = x => x + 1;
+
+    function pipe(...fns) 
+    {
+      return function(x)
+      {
+        return fns.reduce((input, fn) => fn(input) , x);
+      }
+    }
+
+    function add(x)
+    {
+      console.log('x value is ', x);
+      return function(y)
+      {
+        console.log('y value is ', y);
+        return x + y;
+      }
+    }
+    
+    console.log('Add (3) ', add(3));
+    console.log('Add (3) (4) ', add(3)(4));
+    console.log('f.g(3) ', f(g(3)));
+
+    let newFun = pipe(i, add(3));
+    console.log('New Fun ', newFun(3));
+  </script>
+</html>

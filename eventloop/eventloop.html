@@ -1,0 +1,21 @@
+<html>
+  <body>
+    
+    <button type="button" id="btnStop">Stop</button>
+  </body>
+  <script>
+    document.getElementById('btnStop').addEventListener('click', () => {
+      console.log('Hello');
+    });
+
+    setInterval(() => {
+      console.log('Hello');
+    }, 1000);
+
+    // Blocking Theard ( call stack )
+    // while(true)
+    // {
+    //   ;
+    // }
+  </script>
+</html>

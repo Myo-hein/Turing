@@ -1,0 +1,30 @@
+ <html>
+  <script>
+    let obj = {
+      name : 'Tk',
+      age : 39
+    }
+
+    let obj2 = {
+      address : 'somewhre',
+      other: ''
+    }
+
+    function checkStringEnpty(obj)
+    {
+      for( let prop in obj)
+      {
+        if(typeof(obj[prop]) === 'string' && obj[prop] === '')
+        {
+          console.warn('Property ', prop, ' is empty');
+        }
+      }
+    }
+
+    checkStringEnpty(obj2);
+
+    console.log('PropertyDescriptor ', Object.getOwnPropertyDescriptor(obj, 'name'));
+    console.log('PropertyDescriptor ', Object.getOwnPropertyDescriptor({}, 'toString'));
+
+  </script>
+ </html>

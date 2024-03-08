@@ -1,0 +1,23 @@
+<html>
+  <script>
+    let f = x => x + 10;
+    let g = x => x * 2;
+    let i = x => x + 1;
+    console.log('f.g.n(3) ', f(g(i(3))));
+
+    function compose(...fns)
+    {
+      
+      return function(x)
+      {
+        return fns.reduceRight((input, fn) => {
+          console.log( fn.name , fn(input) );
+          return fn(input)
+        }, x);
+      }
+    }
+
+    let newFun = compose(f, g, i);
+    console.log('New Fun ', newFun(3));
+  </script>
+</html>

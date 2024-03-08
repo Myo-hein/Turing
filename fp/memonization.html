@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    for(let i = 0; i < arr.length; i++)
+    {
+      arr[i] += 1;
+    }
+    console.log('arr by for()', arr);
+
+
+    function factorial(n)
+    {
+      console.log('Compute fn ',n);
+      let result = 1;
+      for(let i = 1; i <= n; i++)
+      {
+        result*=i;
+      }
+      return result;
+    }
+
+    function memorize(fn)
+    {
+      let cache = {};
+      return function(x)
+      {
+        if(cache[x])
+        {
+          return cache[x];
+        }
+        else
+        {
+          cache[x] = fn(x);
+          return cache[x];
+        }
+      }
+    }
+
+    // Referentail Transparency logic 
+    let memorizeFactorial = memorize(factorial);
+    console.log('Fact ', memorizeFactorial(5));
+    console.log('Fact ', memorizeFactorial(5));
+    console.log('Fact ', memorizeFactorial(3));
+
+  </script>
+</body>
+</html>

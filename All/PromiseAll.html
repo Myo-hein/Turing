@@ -1,0 +1,22 @@
+<html>
+  <body>
+    
+    <script>
+      let url1 = 'https://jsonplaceholder.typicode.com/todos/1';
+      let url2 = 'https://jsonplaceholder.typicode.com/todos/2';
+      let url3 = 'https://jsonplaceholder.typicode.com/todos/3';
+
+      let urls = [ url1, url2, url3];
+
+      let promises = urls.map(url => 
+        fetch(url)
+        .then(res => res.json())
+      );
+
+      Promise.all(promises)
+        .then( data => {
+          console.log('Data ', data);
+        })
+    </script>
+  </body>
+</html>

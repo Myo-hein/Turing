@@ -1,0 +1,22 @@
+<html>
+  <script>
+    let nums = [ 1, 1, 1, 2, 3, 3 ], k = 2;
+
+    let frequency = {};
+
+    frequency = nums.reduce( (group, element) => {
+      return (!group[element]) 
+        ? (group[element] = 1, group) 
+        : (group[element]++ , group);
+    },{})
+
+    console.log('Frequency ', frequency);
+
+    let frequencyArr = Object.entries(frequency);
+    console.log('Frequency Arr ', frequencyArr);
+
+    let result = frequencyArr.map(arr => arr[0]);
+    console.log('TopK ', result);
+
+  </script>
+</html>

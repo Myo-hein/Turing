@@ -1,0 +1,21 @@
+<html>
+  <script>
+    let worker = new Worker('worker.js');
+    
+    setInterval(() => {
+      console.log('Hello');
+    }, 1000);
+
+    worker.postMessage({
+      data : 555
+    });
+
+    worker.addEventListener('message', event => {
+      console.log('Message received from worker ', event.data);
+    })
+
+    document.addEventListener('click', (event) => {
+      console.log('Click');
+    })
+  </script>
+</html>

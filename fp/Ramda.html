@@ -1,0 +1,17 @@
+<html>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.min.js"></script>
+  <script>
+    let newFun = R.pipe(R.flip(R.divide)(2), R.flip(R.add)(3));
+    console.log(newFun);
+
+    let list = [1, 2, 3, 4, 5];
+    const average = R.converge(R.divide, [R.sum, R.length]);
+    console.log('Average ', average(list));
+
+    const even =  x => x % 2 == 0;
+    const countEven = R.count(even)(list);
+    console.log('count even number ',countEven);
+
+    
+  </script>
+</html>

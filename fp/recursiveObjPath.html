@@ -1,0 +1,33 @@
+<html>
+  <script>
+    const obj = {
+      name : 'MH',
+      age : 24,
+      arr : [100, 200],
+      display()
+      {
+        console.log('Display');
+      },
+      address : {
+        city : 'ygn'
+      }
+    }
+
+    // null safe call 
+    console.log('city ', obj?.address?.city);
+
+    const getByPath = (arr, obj) => {
+      if(arr[0] in obj) 
+      {
+        return arr.length > 1
+          ? getByPath(arr.slice(1), obj[arr[0]])
+          : { ...obj[arr[0]]};
+      }
+      else
+      {
+        return undefined;
+      }
+    }
+    console.log('Address ', getByPath(['address', 'city'], obj));
+  </script>
+</html>
