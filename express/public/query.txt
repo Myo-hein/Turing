@@ -1,0 +1,162 @@
+db.movies.insertOne(
+  {
+    title: "Titanic",
+    genres: ["Drama", "History"],
+    runtime: 121,
+    rated: "R",
+    year: 2018,
+    directors: ["Jame Cameron"],
+    actors: [
+      {
+        firstName: "Leonardo",
+        lastName: "Decapio"
+      }, 
+      {
+        firstName: "Kate",
+        lastName: "Winslect"
+      }
+    ],
+    type: "movie"
+  }
+)
+
+db.movies.insertOne(
+  {
+    title: "Cast Away",
+    genres: ["Drama", "Survival"],
+    runtime: 121,
+    rated: "R",
+    year: 1999,
+    directors: ["Jame Cameron"],
+    cast: [
+      "Tom Hanks"
+    ],
+    type: "movie"
+  }
+)
+
+db.movies.insertOne(
+  {
+    title: "Dirty",
+    genres: ["Dark"],
+    runtime: 160,
+    rated: "PG-18",
+    year: 2014,
+    directors: ["Ma Aye Aye Win"],
+    cast: [
+      "Robert Wired"
+    ],
+    type: "movie"
+  }
+)
+
+db.movies.insertOne(
+  {
+    title: "Dirty GrandPa",
+    genres: ["Dark"],
+    runtime: 110,
+    rated: "PG-21",
+    year: 2014,
+    directors: ["Ma Aye Aye Win"],
+    cast: [
+      "Robert Pussy"
+    ],
+    type: "movie"
+  }
+)
+
+db.movies.find({
+  "rated": "R",
+  $or: [
+    {
+      "title": "Titanic"
+    },
+    {
+      "year": 2018
+    }
+  ]
+})
+
+db.inventory.insertMany([
+  {
+    item: "journal",
+    qty: 25, 
+    size: {
+      h: 14,
+      w: 21, 
+      uom: "cm"
+    },
+    status: "A"
+  }, 
+  {
+    item: "notebook",
+    qty: 50, 
+    size: {
+      h: 8.5,
+      w: 11, 
+      uom: "in"
+    },
+    status: "A"
+  }, 
+  {
+    item: "paper",
+    qty: 100, 
+    size: {
+      h: 8.5,
+      w: 11, 
+      uom: "in"
+    },
+    status: "D"
+  }, 
+  {
+    item: "planner",
+    qty: 75, 
+    size: {
+      h: 22.85,
+      w: 30, 
+      uom: "cm"
+    },
+    status: "D"
+  }, 
+  {
+    item: "postcard",
+    qty: 45, 
+    size: {
+      h: 10,
+      w: 15.25, 
+      uom: "cm"
+    },
+    status: "A"
+  }, 
+]);
+
+db.inventory.updateOne(
+  { item: "paper"},
+  {
+    $set: {"size.uom": "cm", status: "P", item: "paper updated"},
+    $currentDate: { lastModified: true }   
+  }
+)
+
+let todos = [
+  {
+    "title": "et pro resllt",
+    "completed": true
+  },
+  {
+    "title": " proet llt res",
+    "completed": false
+  },
+  {
+    "title": "etro pre sllt",
+    "completed": false
+  },
+  {
+    "title": "pera dell ho",
+    "completed": true
+  },
+  {
+    "title": "hp ek2 4dsf",
+    "completed": false
+  },
+]
